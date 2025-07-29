@@ -8,7 +8,7 @@ import { addOurTeam, getOurTeam } from "../controllers/ourTeamControllers.js";
 import { createOurOffice, getOurOffice } from "../controllers/ourOfficesControllers.js";
 import { subscribe } from "../controllers/subscribeControllers.js";
 import { contactus } from "../controllers/contactUsControllers.js";
-import { createDeveloper, getDeveloper } from "../controllers/developerControllers.js";
+import { createDeveloper, getDeveloper, getDeveloperByID } from "../controllers/developerControllers.js";
 import { AllBlogController, BlogController, BlogImageController, getBlogByIdController } from "../controllers/blogControllers.js";
 const router = express.Router();
 
@@ -40,6 +40,8 @@ router.post("/create-developer", upload.fields([
 ]), createDeveloper);
 
 router.get("/All-Developer", getDeveloper);
+
+router.get("/All-Developer/:id", getDeveloperByID);
 
 router.post('/upload-image', upload.single('upload'), BlogImageController);
 router.post('/create-blogs', upload.single("featuredImage"), BlogController);

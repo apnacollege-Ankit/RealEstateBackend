@@ -78,3 +78,31 @@ export const getDeveloper = async (req, res) => {
         });
     }
 };
+
+export const getDeveloperByID = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const developer = await Developer.findById(id);
+
+        if (!developer) {
+            return res.status(404).json({
+                success: false,
+                message: "Developer not found",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Developer retrieved successfully",
+            data: developer,
+        });
+    } catch (error) {
+        console.error("Error getting developer by ID", error);
+        res.status(500).json({
+            success: false,
+            message: "Error retrieving developer",
+            error: error.message,
+        });
+    }
+};
