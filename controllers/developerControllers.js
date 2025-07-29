@@ -63,7 +63,7 @@ export const createDeveloper = async (req, res) => {
 
 export const getDeveloper = async (req, res) => {
     try {
-        const developer = (await Developer.find()).sort({createdAt: -1});
+        const developer = await Developer.find().sort({createdAt: -1});
         res.status(200).json({
             success: true,
             message: "Developer retrieved successfully",
