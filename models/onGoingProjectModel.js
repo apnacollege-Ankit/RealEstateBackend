@@ -30,7 +30,7 @@ const onGoingSchema = new mongoose.Schema({
         required: true
     },
     beds: {
-        type: Number,
+        type: [String],
         required: true
     },
     email: {
