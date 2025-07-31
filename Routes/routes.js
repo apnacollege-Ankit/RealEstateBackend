@@ -11,6 +11,7 @@ import { contactus } from "../controllers/contactUsControllers.js";
 import { createDeveloper, getDeveloper, getDeveloperByID } from "../controllers/developerControllers.js";
 import { AllBlogController, BlogController, BlogImageController, getBlogByIdController } from "../controllers/blogControllers.js";
 import { createArea, getArea, getAreaById } from "../controllers/areaControllers.js";
+import { createService, getService, getServiceById } from "../controllers/servicesControllers.js";
 const router = express.Router();
 
 router.post("/addProperty", upload.array('images', 5), createProperty);
@@ -52,6 +53,15 @@ router.post("/create-Area", upload.fields([
 router.get("/All-Area", getArea);
 
 router.get("/All-Area/:id", getAreaById);
+
+
+router.post("/Create-Service", upload.fields([
+    {name: 'image', maxCount: 2},
+    {name: 'logo', maxCount: 1},
+]), createService);
+
+router.get("/All-Services", getService);
+router.get("/All-Service/:id", getServiceById);
 
 router.post('/upload-image', upload.single('upload'), BlogImageController);
 router.post('/create-blogs', upload.single("featuredImage"), BlogController);
