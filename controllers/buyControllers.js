@@ -115,7 +115,7 @@ export const getBuyPropertyById = async (req, res) => {
 
         const buyProperty = await buyModel.findById(id);
 
-        if (!property) {
+        if (!buyProperty) {
             return res.status(404).json({
                 success: false,
                 message: "Property not found.",
