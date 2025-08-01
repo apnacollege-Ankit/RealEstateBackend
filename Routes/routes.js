@@ -12,6 +12,7 @@ import { createDeveloper, getDeveloper, getDeveloperByID } from "../controllers/
 import { AllBlogController, BlogController, BlogImageController, getBlogByIdController } from "../controllers/blogControllers.js";
 import { createArea, getArea, getAreaById } from "../controllers/areaControllers.js";
 import { createService, getService, getServiceById } from "../controllers/servicesControllers.js";
+import { createBuyProperty, getBuyProperty, getBuyPropertyById } from "../controllers/buyControllers.js";
 const router = express.Router();
 
 router.post("/addProperty", upload.array('images', 5), createProperty);
@@ -69,6 +70,10 @@ router.post('/upload-image', upload.single('upload'), BlogImageController);
 router.post('/create-blogs', upload.single("featuredImage"), BlogController);
 router.get('/blogs', AllBlogController);
 router.get('/blogs/:id', getBlogByIdController);
+
+router.post('/buy-property', upload.array('images', 5), createBuyProperty);
+router.get('/all-buyProperty', getBuyProperty);
+router.get('/all-buyProperty', getBuyPropertyById);
 
 
 export default router;
