@@ -1,5 +1,5 @@
 import express from "express"; 
-import { createProperty, getProperty } from "../controllers/landingPageControllers.js";
+import { createProperty, getProperty, getPropertyById } from "../controllers/landingPageControllers.js";
 import { upload, svgUpload } from "../middleware/multer.js";
 import { addTestimonials, getTestimonials } from "../controllers/testimonialsControllers.js";
 import { addOurExpert, getOurExpert } from "../controllers/ourExpertControllers.js";
@@ -16,6 +16,7 @@ const router = express.Router();
 
 router.post("/addProperty", upload.array('images', 5), createProperty);
 router.get('/allProperty', getProperty);
+router.get('/allProperty/:id', getPropertyById);
 
 router.post("/createTestimonials", addTestimonials);
 router.get("/alltestimonials", getTestimonials);

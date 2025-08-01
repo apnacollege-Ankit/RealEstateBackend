@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
+import mongoose from 'mongoose';
 import PropertyModel from '../models/landingPageModel.js';
 import { uploadOnCloudinary } from '../utils/cloudinary.js';
 
@@ -102,3 +103,41 @@ export const getProperty = async (req, res) => {
         });
     }
 };
+
+export const getPropertyById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid property ID.",
+            });
+        }
+
+        const property = await PropertyModel.findById(id);
+
+        if (!property) {
+            return res.status(404).json({
+                success: false,
+                message: "Property not found.",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Property fetched successfully.",
+            data: property,
+        });
+
+    } catch (error) {
+        console.error("Error fetching property by ID", error);
+        res.status(500).json({
+            success: false,
+            message: "Server error while fetching property.",
+            error: error.message,
+        });
+    }
+};
+
+
