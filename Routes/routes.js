@@ -73,7 +73,7 @@ router.get('/blogs/:id', getBlogByIdController);
 
 router.post('/buy-property', upload.array('images', 5), createBuyProperty);
 router.get('/all-buyProperty', getBuyProperty);
-router.get('/all-buyProperty', getBuyPropertyById);
+router.get('/all-buyProperty/:id', getBuyPropertyById);
 
 
 export default router;
