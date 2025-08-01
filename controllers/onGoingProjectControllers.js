@@ -3,6 +3,7 @@ dotenv.config();
 
 import OnGoing from '../models/onGoingProjectModel.js';
 import { uploadOnCloudinary } from '../utils/cloudinary.js';
+import mongoose from 'mongoose';
 
 export const addOnGoingProject = async (req, res) => {
     try {
@@ -79,6 +80,41 @@ export const getOnGoingProject = async (req, res) => {
             success: false,
             message: 'Server Error during Fetch',
             error: error.message
+        });
+    }
+};
+
+export const getOnGoingProjectById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(404).json({
+                success: false,
+                message: "Invalid project ID",
+            });
+        }
+
+        const project = await OnGoing.findById(id);
+
+        if (!project) {
+            return res.status(404).json({
+                success: false,
+                message: "Project not found",
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Project fetched successfully",
+            data: project,
+        });
+    } catch (error) {
+        console.error("Error fetching OnGoingProject by ID", error);
+        res.status(500).json({
+            success: false,
+            message: "Server error while fetching project",
+            error: error.message,
         });
     }
 };

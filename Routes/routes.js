@@ -3,7 +3,7 @@ import { createProperty, getProperty, getPropertyById } from "../controllers/lan
 import { upload, svgUpload } from "../middleware/multer.js";
 import { addTestimonials, getTestimonials } from "../controllers/testimonialsControllers.js";
 import { addOurExpert, getOurExpert } from "../controllers/ourExpertControllers.js";
-import { addOnGoingProject, getOnGoingProject } from "../controllers/onGoingProjectControllers.js";
+import { addOnGoingProject, getOnGoingProject, getOnGoingProjectById } from "../controllers/onGoingProjectControllers.js";
 import { addOurTeam, getOurTeam } from "../controllers/ourTeamControllers.js";
 import { createOurOffice, getOurOffice } from "../controllers/ourOfficesControllers.js";
 import { subscribe } from "../controllers/subscribeControllers.js";
@@ -26,6 +26,7 @@ router.get('/getAllData', getOurExpert);
 
 router.post ("/add-ProjectData", upload.array('images', 5), addOnGoingProject);
 router.get("/all-ProjectData", getOnGoingProject);
+router.get("/all-ProjectData/:id", getOnGoingProjectById);
 
 router.post("/addTeam", upload.single('image'), addOurTeam);
 router.get("/all-Team", getOurTeam);
