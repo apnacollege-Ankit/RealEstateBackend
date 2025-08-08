@@ -11,7 +11,7 @@ export const createListProperty = async (req, res) => {
         if (!PropertyType || !AskingPrice || !Address || !City || !State || !ZipCode || Bedrooms === undefined ||
             Bathrooms === undefined ||
             SquareFootage === undefined || !PropertyDescription || !FullName || !EmailAddress || !PhoneNumber) {
-            return res.Status(400).json({
+            return res.status(400).json({
                 success: false,
                 message: "All Fields are required",
             });
