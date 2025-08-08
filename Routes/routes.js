@@ -13,6 +13,7 @@ import { AllBlogController, BlogController, BlogImageController, getBlogByIdCont
 import { createArea, getArea, getAreaById } from "../controllers/areaControllers.js";
 import { createService, getService, getServiceById } from "../controllers/servicesControllers.js";
 import { createBuyProperty, getBuyProperty, getBuyPropertyById } from "../controllers/buyControllers.js";
+import { createListProperty, getListProperty } from "../controllers/listPropertyControllers.js";
 const router = express.Router();
 
 router.post("/addProperty", upload.array('images', 5), createProperty);
@@ -74,6 +75,9 @@ router.get('/blogs/:id', getBlogByIdController);
 router.post('/buy-property', upload.array('images', 5), createBuyProperty);
 router.get('/all-buyProperty', getBuyProperty);
 router.get('/all-buyProperty/:id', getBuyPropertyById);
+
+router.post('/List-Property', upload.array('PropertyImages', 5), createListProperty);
+router.get("/all-Property", getListProperty);
 
 
 export default router;
