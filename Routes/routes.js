@@ -14,6 +14,8 @@ import { createArea, getArea, getAreaById } from "../controllers/areaControllers
 import { createService, getService, getServiceById } from "../controllers/servicesControllers.js";
 import { createBuyProperty, getBuyProperty, getBuyPropertyById } from "../controllers/buyControllers.js";
 import { createListProperty, getListProperty } from "../controllers/listPropertyControllers.js";
+import { subscribe2 } from "../controllers/subscribe2Controllers.js";
+import { createDownload, getDownloads } from "../controllers/downloadControllers.js";
 const router = express.Router();
 
 router.post("/addProperty", upload.array('images', 5), createProperty);
@@ -78,6 +80,12 @@ router.get('/all-buyProperty/:id', getBuyPropertyById);
 
 router.post('/List-Property', upload.array('PropertyImages', 5), createListProperty);
 router.get("/all-Property", getListProperty);
+
+router.post("/subscribe-all", subscribe2);
+
+router.post("/create-download", createDownload);
+
+router.get("/get-download", getDownloads);
 
 
 export default router;
