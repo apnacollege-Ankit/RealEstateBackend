@@ -1,59 +1,59 @@
 import mongoose from "mongoose";
 
 const listPropertySchema = new mongoose.Schema({
-    PropertyType: {
+    propertyType: {
         type: String,
         required: true
     },
-    AskingPrice: {
+    askingPrice: {
         type: Number,
         required: true
     },
-    Address: {
+    address: {
         type: String,
         required: true
     },
-    City: {
+    city: {
         type: String,
         required: true
     },
-    State: {
+    state: {
         type: String,
         required: true
     },
-    ZipCode: {
+    zipCode: {
         type: String,
         required: true
     },
-    Bedrooms: {
+    bedrooms: {
         type: String,
         required: true
     },
-    Bathrooms: {
+    bathrooms: {
         type: String,
         required: true
     },
-    SquareFootage: {
+    squareFootage: {
         type: String,
         required: true
     },
-    PropertyDescription: {
+    propertyDescription: {
         type: String,
         required: true
     },
-    PropertyImages: {
+    propertyImages: {
         type: [String],
         required: true
     },
-    FullName: {
+    fullName: {
         type: String,
         required: true
     },
-    EmailAddress: {
+    emailAddress: {
         type: String,
         required: true
     },
-    PhoneNumber: {
+    phoneNumber: {
         type: String,
         required: true
     }

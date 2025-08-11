@@ -6,11 +6,11 @@ import { uploadOnCloudinary } from '../utils/cloudinary.js';
 
 export const createListProperty = async (req, res) => {
     try {
-        const { PropertyType, AskingPrice, Address, City, State, ZipCode, Bedrooms, Bathrooms, SquareFootage, PropertyDescription, FullName, EmailAddress, PhoneNumber } = req.body;
+        const { propertyType, askingPrice, address, city, state, zipCode, bedrooms, bathrooms, squareFootage, propertyDescription, fullName, emailAddress, phoneNumber } = req.body;
 
-        if (!PropertyType || !AskingPrice || !Address || !City || !State || !ZipCode || Bedrooms === undefined ||
-            Bathrooms === undefined ||
-            SquareFootage === undefined || !PropertyDescription || !FullName || !EmailAddress || !PhoneNumber) {
+        if (!propertyType || !askingPrice || !address || !city || !state || !zipCode || bedrooms === undefined ||
+            bathrooms === undefined ||
+            squareFootage === undefined || !propertyDescription || !fullName || !emailAddress || !phoneNumber) {
             return res.status(400).json({
                 success: false,
                 message: "All Fields are required",
@@ -33,20 +33,20 @@ export const createListProperty = async (req, res) => {
         }
 
         const newListProperty = new ListProperty({
-            PropertyImages: imageUrls,
-            PropertyType,
-            AskingPrice,
-            Address,
-            City,
-            State,
-            ZipCode,
-            Bedrooms,
-            Bathrooms,
-            SquareFootage,
-            PropertyDescription,
-            FullName,
-            EmailAddress,
-            PhoneNumber,
+            propertyImages: imageUrls,
+            propertyType,
+            askingPrice,
+            address,
+            city,
+            state,
+            zipCode,
+            bedrooms,
+            bathrooms,
+            squareFootage,
+            propertyDescription,
+            fullName,
+            emailAddress,
+            phoneNumber,
         });
         const savedListProperty = await newListProperty.save();
 
