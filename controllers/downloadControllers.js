@@ -4,8 +4,8 @@ import Download from '../models/downloadModel.js';
 
 export const createDownload = async (req, res) => {
     try {
-        const {name, email, phoneNumber, language} = req.body;
-        if(!name || !email || !phoneNumber || !language) {
+        const {type, budget, bedrooms, location, time, name, email, phoneNumber, language} = req.body;
+        if(!type || !budget|| !bedrooms || !location || !time|| !name || !email || !phoneNumber || !language) {
             return res.status(400).json({
                 success: false,
                 message: "All fields are required",
@@ -13,6 +13,11 @@ export const createDownload = async (req, res) => {
         }
 
         const download = new Download({
+            type,
+            budget,
+            bedrooms,
+            location,
+            time,
             name,
             email,
             phoneNumber,

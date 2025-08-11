@@ -16,6 +16,7 @@ import { createBuyProperty, getBuyProperty, getBuyPropertyById } from "../contro
 import { createListProperty, getListProperty } from "../controllers/listPropertyControllers.js";
 import { subscribe2 } from "../controllers/subscribe2Controllers.js";
 import { createDownload, getDownloads } from "../controllers/downloadControllers.js";
+import { createInquiry, getInquiry } from "../controllers/inquiryControllers.js";
 const router = express.Router();
 
 router.post("/addProperty", upload.array('images', 5), createProperty);
@@ -86,6 +87,10 @@ router.post("/subscribe-all", subscribe2);
 router.post("/create-download", createDownload);
 
 router.get("/get-download", getDownloads);
+
+router.post("/create-Inquiry", createInquiry);
+
+router.get("/allInquiry", getInquiry);
 
 
 export default router;

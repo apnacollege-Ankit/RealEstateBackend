@@ -1,6 +1,26 @@
 import mongoose from "mongoose";
 
 const downloadSchema = new mongoose.Schema({
+    type: {
+        type: String,
+        required: true
+    },
+    budget: {
+        type: String,
+        required: true
+    },
+    bedrooms: {
+        type: String,
+        required: true
+    },
+    location: {
+        type: String,
+        required: true
+    },
+    time: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
