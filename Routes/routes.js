@@ -78,7 +78,7 @@ router.post('/buy-property', upload.array('images', 5), createBuyProperty);
 router.get('/all-buyProperty', getBuyProperty);
 router.get('/all-buyProperty/:id', getBuyPropertyById);
 
-router.post('/List-Property', upload.array('PropertyImages', 5), createListProperty);
+router.post('/List-Property', upload.array('propertyImages', 5), createListProperty);
 router.get("/all-Property", getListProperty);
 
 router.post("/subscribe-all", subscribe2);
