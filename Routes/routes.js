@@ -17,6 +17,7 @@ import { createListProperty, getListProperty } from "../controllers/listProperty
 import { subscribe2 } from "../controllers/subscribe2Controllers.js";
 import { createDownload, getDownloads } from "../controllers/downloadControllers.js";
 import { createInquiry, getInquiry } from "../controllers/inquiryControllers.js";
+import { createDigital, getDigital } from "../controllers/digitalEditionControllers.js";
 const router = express.Router();
 
 router.post("/addProperty", upload.array('images', 5), createProperty);
@@ -91,6 +92,10 @@ router.get("/get-download", getDownloads);
 router.post("/create-Inquiry", createInquiry);
 
 router.get("/allInquiry", getInquiry);
+
+router.post("/digital-Edition", createDigital);
+
+router.get("/get-Edition", getDigital);
 
 
 export default router;
