@@ -11,9 +11,9 @@ const areaSchema = new mongoose.Schema({
     },
     logo: {
         type: String,
-        required: true
+        required:true
     },
-    description: {
+    description:{
         type: String,
         required: true
     }

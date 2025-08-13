@@ -61,3 +61,5 @@ const listPropertySchema = new mongoose.Schema({
 
 const ListProperty = mongoose.model("ListProperty", listPropertySchema);
 export default ListProperty;
+
+

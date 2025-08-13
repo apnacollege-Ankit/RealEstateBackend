@@ -18,6 +18,7 @@ import { subscribe2 } from "../controllers/subscribe2Controllers.js";
 import { createDownload, getDownloads } from "../controllers/downloadControllers.js";
 import { createInquiry, getInquiry } from "../controllers/inquiryControllers.js";
 import { createDigital, getDigital } from "../controllers/digitalEditionControllers.js";
+import { createPopup, getPopup } from "../controllers/popupControllers.js";
 const router = express.Router();
 
 router.post("/addProperty", upload.array('images', 5), createProperty);
@@ -96,6 +97,10 @@ router.get("/allInquiry", getInquiry);
 router.post("/digital-Edition", createDigital);
 
 router.get("/get-Edition", getDigital);
+
+router.post("/popup-form", createPopup);
+
+router.get("/all-popupform", getPopup);
 
 
 export default router;
